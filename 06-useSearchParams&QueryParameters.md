@@ -21,3 +21,19 @@ Helps read and manipulate query strings.
 # Use useParams for routing and identifying resources by IDs or other dynamic path segments.
 
 # Use useSearchParams for features like search, filtering, or maintaining temporary UI state in the URL.
+
+```code
+const [searchParams, setSearchParams] = useState({});
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const paramsObject = {};
+
+    // Loop through the parameters and add them to the object
+    params.forEach((value, key) => {
+      paramsObject[key] = value;
+    });
+
+    setSearchParams(paramsObject);
+  }, []);
+```
